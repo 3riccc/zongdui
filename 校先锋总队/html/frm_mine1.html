@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>人员信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <script src="../script/angular.min.js"></script>
+    <script src="../script/person.js"></script>
+    <style>
+        .empty{ text-align: center; padding: 0 0; }
+    </style>
+</head>
+<body ng-app="zongDui">
+    <div class="empty" ng-controller="personCtrl">
+        <table class="table table-striped" ng-repeat="department in personList">
+            <tbody>
+                <thead>
+                    <td colspan="4">{{department.name}}</td>
+                </thead>
+              <tr ng-repeat="person in department.person">
+                <td>{{person.name}}</td>
+                <td></td>
+                <td><img ng-click="showInfo(person)" src="../image/info.png" alt=""></td>
+                <td><a href="tel:{{person.phone}}"><img src="../image/telephone.png" alt=""></a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+        // $api.dom('.empty').innerHTML = api.pageParam.name+'页';
+        // alert(api.pageParam.id);
+    };
+</script>
