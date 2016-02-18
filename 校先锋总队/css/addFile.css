@@ -1,0 +1,26 @@
+body{
+
+}
+.addFile{
+	padding-top: 10px !important;
+}
+.title{
+	height: 45px;
+	border-bottom: 2px solid #ddd;
+	line-height: 45px;
+}
+.item{
+	border-bottom: 1px solid #ddd;
+	height: 45px;
+	padding-left: 16px;
+	line-height: 45px;
+	width: 100%;
+}
+.submit{
+	height: 45px;
+	width: 95%;
+	margin: 30px auto;
+	line-height: 45px;
+	color: white;
+	background-color: #387ef5;
+}

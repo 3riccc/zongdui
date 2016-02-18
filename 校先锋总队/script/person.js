@@ -36,10 +36,14 @@ app.controller('personCtrl',function($scope,$http){
 			]
 		}];
 	$scope.showInfo = function(person){
-		var str = '姓名：'+person.name+'\n';
-		str += '手机号码：'+person.phone+"\n";
-		str += '短号：' +person.phone_duan+'\n';
-		alert(str);
+		var str = '<p>姓名：<span style="color:#F8BB86">'+person.name+'</span></p>';
+		str += '<p>手机号码：<span style="color:#F8BB86">'+person.phone+'</span></p>';
+		str += '<p>短号：<span style="color:#F8BB86">' +person.phone_duan+'</span></p>';
+		swal({
+		   title: person.name+'的信息',
+		   text: str,
+		   html: true
+		});
 	}
 
 	// $http({

@@ -3,21 +3,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>title</title>
+    <title>重要资料</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/sweetalert.css"/>
+    <script src="../script/angular.min.js"></script>
+    <script src="../script/sweetalert-dev.js"></script>
+    <script src="../script/important.js"></script>
     <style>
-        .empty{ text-align: center; padding: 120px 0; }
+        .empty{ text-align: center; padding: 0 0; }
     </style>
 </head>
-<body>
-    <div class="empty"></div>
+<body ng-app="zongDui">
+    <div class="empty" ng-controller="important">
+        <!-- 搜索 -->
+       <div class="search-div">
+           <input type="text" placeholder="关键字">
+           <div class="search-btn"><img src="../image/search.png" alt=""></div>
+       </div>
+       <!-- 列表 -->
+       <ul class="dataListUl" ng-repeat="item in list" ng-click="viewItem(item)">
+           <li class="listName">{{item.name}}</li>
+           <li class="listRemark">{{item.remark}}</li>
+       </ul>
+       <!-- 增加一块空白 -->
+       <div style="height:40px;width:100%;"></div>
+       <!-- 添加新文件 -->
+       <div class="addNewFile" onclick="addNewFile()">
+           添加资料
+       </div>
+    </div>
 </body>
 </html>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
     apiready = function(){
-        $api.dom('.empty').innerHTML = api.pageParam.name+'页';
-        alert(api.pageParam.id);
+        // $api.dom('.empty').innerHTML = api.pageParam.name+'页';
+        // alert(api.pageParam.id);
     };
+    function addNewFile(){
+        api.openWin({
+            name: 'addFile',
+            url: './addFile.html',
+            // bgColor:"#dddddd";
+        });
+    }
 </script>

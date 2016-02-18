@@ -1,0 +1,16 @@
+.addNewSign{
+	position: fixed;
+	bottom: 0px;
+	background-color: #387EF5;
+	height:40px;
+	width: 100%;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+}
+
+#mapContainer{
+	margin: 10px auto;
+	height: 500px;
+	width: 95%;
+}

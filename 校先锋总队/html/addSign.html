@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>上传资料</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/sign.css" />
+    <link rel="stylesheet" href="../css/addFile.css"/>
+    <link rel="stylesheet" href="../css/sweetalert.css"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Hh2DRGuAIqowNPeM9XPWb7E">
+    </script>
+
+    <!-- <script src="../script/angular.min.js"></script> -->
+    <!-- <script src="../script/sweetalert-dev.js"></script> -->
+    <!-- <script src="../script/addSign.js"></script> -->
+    <!-- 引入百度地图 -->
+    <style>
+        .empty{ text-align: center; padding: 0 0; }
+    </style>
+</head>
+<body ng-app="zongDui">
+    <div class="empty addFile" ng-controller="addFileCtrl">
+        <div class="title">上传资料</div>
+        <input type="text" id="name" class="item" placeholder="资料名称">
+        <input type="text" id="remark" class="item" placeholder="备注">
+        <input type="text" id="address" class="item" placeholder="云盘地址">
+        <input type="text" id="code" class="item" placeholder="提取码">
+        <div id="demo" onclick="getLocation()">ffff</div>
+        <div id="mapContainer"></div>
+
+        <div class="submit" ng-click="addFile()">提交</div>
+    </div>
+</body>
+</html>
+<!-- <script type="text/javascript" src="../script/api.js"></script> -->
+<script type="text/javascript">
+    // window.onload = function(){
+    //     swal("上传提醒", "请先将文件上传至百度云等，再记录并分享地址");
+    // }
+    // 获取自己的地址标在百度地图上
+    // window.onload = function(){
+    // }
+    // apiready = function(){
+    // };
+var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+
+    function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+        alert("当前定位城市:"+cityName);
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+
+</script>
+
